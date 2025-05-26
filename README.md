@@ -134,6 +134,30 @@ Once the server is running and Claude Desktop is configured, you can use the fol
 - `get_events`: Retrieve upcoming events (workouts, races, etc.)
 - `get_event_by_id`: Get detailed information for a specific event
 
+## Updating
+
+This project is currently under development and new features are added. To update the project and use the newest features to the following:
+
+### 1. Checkout and pull updates from main branch
+Note here that this will fail in case you have any changes in the project.
+```
+git checkout main && git pull
+```
+
+### 2. Activate virtual environment and update python dependencies
+```
+source .venv/bin/activate
+uv sync
+```
+
+### Now Claude should be able to connect to intervals.icu again.
+### Troubleshooting 
+1. The entry in the in the Claude Desktop App configuration changed over time. Delete the  current entry ("Intervals.icu MCP") in the `claude_desktop_config.json`
+2. Run the following from the intervals_mcp_server directory to configure Claude Desktop:
+```
+mcp install src/intervals_mcp_server/server.py --name "Intervals.icu" --with-editable . --env-file .env
+```
+
 ## Development and testing
 
 Install development dependencies and run the test suite with:
